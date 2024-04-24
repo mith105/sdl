@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gmail Registration Form</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        body {
+	background-color: #f2f2f2;
+	font-family: Arial, sans-serif;
+}
+
+form {
+	width: 300px;
+	margin: 0 auto;
+	background-color: #fff;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"] {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
+	font-size: 14px;
+}
+
+select {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
+	font-size: 14px;
+}
+
+input[type="submit"] {
+	background-color: #4CAF50;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+input[type="submit"]:hover {
+	background-color: #3e8e41;
+}
+    </style>
+</head>
+<body>
+	<form id="registrationForm">
+		<label for="name">Name:</label><br>
+		<input type="text" id="name" name="name"><br>
+		<label for="email">Email:</label><br>
+		<input type="email" id="email" name="email"><br>
+		<label for="password">Password:</label><br>
+		<input type="password" id="password" name="password"><br>
+		<label for="confirmPassword">Confirm Password:</label><br>
+		<input type="password" id="confirmPassword" name="confirmPassword"><br>
+		<label for="birthdate">Birthdate:</label><br>
+		<input type="date" id="birthdate" name="birthdate"><br>
+		<label for="gender">Gender:</label><br>
+		<select id="gender" name="gender">
+			<option value="">Select Gender</option>
+			<option value="male">Male</option>
+			<option value="female">Female</option>
+			<option value="other">Other</option>
+		</select><br>
+		<input type="submit" value="Register">
+	</form>
+    <script>
+        const form = document.getElementById('registrationForm');
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const name = document.getElementById('name');
+  const email = document.getElementById('email');
+  const password = document.getElementById('password');
+  const confirmPassword = document.getElementById('confirmPassword');
+  const birthdate = document.getElementById('birthdate');
+  const gender = document.getElementById('gender');
+
+  if (name.value === '' || email.value === '' || password.value === '' || confirmPassword.value === '' || birthdate.value === '' || gender.value === '') {
+    alert('Please fill in all fields.');
+    return;
+  }
+
+  if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value))) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+
+  if (password.value.length < 8) {
+    alert('Password must be at least 8 characters long.');
+    return;
+  }
+
+  if (password.value!== confirmPassword.value) {
+    alert('Passwords do not match.');
+    return;
+  }
+
+  if (birthdate.value === '') {
+    alert('Please enter your birthdate.');
+    return;
+  }
+
+  if (gender.value === '') {
+    alert('Please select your gender.');
+    return;
+  }
+
+  // Submit form if all validations pass
+  form.submit();
+});
+    </script>
+</body>
+</html>

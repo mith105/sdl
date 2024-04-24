@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+  <body>
+    <h1>Example</h1>
+    <button id="alert-button">Show Alert</button>
+    <button id="average-button">
+      Calculate Average Number of Weeks in Human Lifetime
+    </button>
+    <button id="time-button">Show Time of Day</button>
+    <script>
+        const alertButton = document.getElementById("alert-button");
+        const averageButton = document.getElementById("average-button");
+        const timeButton = document.getElementById("time-button");
+  
+        alertButton.addEventListener("click", () => {
+          alert("Hello, World!");
+        });
+  
+        averageButton.addEventListener("click", () => {
+          const averageWeeks = Math.round(90 * 52);
+          alert(
+            `The average number of weeks in a human lifetime is ${averageWeeks}.`
+          );
+        });
+  
+        timeButton.addEventListener("click", () => {
+          const date = new Date();
+          const hours = date.getHours();
+  
+          let timeOfDay;
+  
+          if (hours >= 6 && hours < 12) {
+            timeOfDay = "morning";
+          } else if (hours >= 12 && hours < 17) {
+            timeOfDay = "afternoon";
+          } else {
+            timeOfDay = "night";
+          }
+  
+          alert(`The time of day is ${timeOfDay}.`);
+        });
+      </script>
+  </body>
+</html>
