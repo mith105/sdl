@@ -7,7 +7,7 @@
 
 
 if (isset($_COOKIE["user"])) {
-   $user_details = json_decode($_COOKIE["user"], true);
+    $user_details = json_decode($_COOKIE["user"], true);
     $email = $user_details["email"];
  
     $select_user = $conn->prepare("SELECT * FROM `users` WHERE email = ?");
@@ -25,9 +25,9 @@ if (isset($_COOKIE["user"])) {
         echo "Welcome back, $firstname $lastname!";
         echo "<br>";
         echo "Your email address is: $email";
-       } else {
+        } else {
         echo "Cookie named 'user' is not set!";
-       }
+    }
 }
 
 ?>
