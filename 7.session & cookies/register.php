@@ -26,7 +26,7 @@ if (isset($_POST["submit"])) {
 
     $insert_user = $conn->prepare("INSERT INTO `users`(firstname, lastname, gender, email, password, country) VALUES(?,?,?,?,?,?)");
     $insert_user->execute([$firstname, $lastname, $gender, $email, $password, $country]);
-    header('location:login_sesssion.php');// for session change for cookie
+    header('location:login.php');// for session change for cookie
 
 }
 ?>
