@@ -163,7 +163,7 @@ input[type="submit"]:hover {
             }
 
             // Validate password for alphanumeric characters and at least one special character
-            if (!/^(?=.[0-9])(?=.[a-zA-Z])(?=.[^a-zA-Z0-9]).$/.test(password)) {
+            if (!/^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]).*$/.test(password)) {
                 valid = false;
                 document.getElementById('passwordError').innerText = "Password must include at least one letter, one number, and one special character.";
             } else {
